@@ -44,7 +44,7 @@ class CardDemo extends JFrame {
 
                 //... Create a card and add it to the deck.
                 Card card = new Card(img);
-                card.moveTo(xPos, yPos);
+                card.moveTo(xPos, 0);
                 deck[n] = card;
 
                 //... Update local vars for next card.
@@ -58,19 +58,19 @@ class CardDemo extends JFrame {
 
         //... Create a card and add it to the deck.
         Card card = new Card(img);
-        card.moveTo(xPos + 50, yPos - 150);
+        card.moveTo(xPos + 150, yPos - 150);
         deck[n++] = card;
 
         imageURL = cldr.getResource( "34.png");
         img = new ImageIcon(imageURL);
         card = new Card(img);
-        card.moveTo(xPos + 150, yPos - 150);
+        card.moveTo(xPos + 250, yPos - 150);
         deck[n++] = card;
 
         imageURL = cldr.getResource( "37.png");
         img = new ImageIcon(imageURL);
         card = new Card(img);
-        card.moveTo(xPos + 250, yPos - 150);
+        card.moveTo(xPos + 350, yPos - 150);
         deck[n++] = card;
     }
 }
