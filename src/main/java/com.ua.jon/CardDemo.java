@@ -8,7 +8,7 @@ import java.net.URL;
 class CardDemo extends JFrame {
     //=================================================================== fields
 
-    private static Card[] deck = new Card[52];
+    private static Card[] deck = new Card[55];
 
     //===================================================================== main
     public static void main(String[] args) {
@@ -53,5 +53,24 @@ class CardDemo extends JFrame {
                 n++;
             }
         }
+        URL imageURL = cldr.getResource( "pointer.png");
+        ImageIcon img = new ImageIcon(imageURL);
+
+        //... Create a card and add it to the deck.
+        Card card = new Card(img);
+        card.moveTo(xPos + 50, yPos - 150);
+        deck[n++] = card;
+
+        imageURL = cldr.getResource( "34.png");
+        img = new ImageIcon(imageURL);
+        card = new Card(img);
+        card.moveTo(xPos + 150, yPos - 150);
+        deck[n++] = card;
+
+        imageURL = cldr.getResource( "37.png");
+        img = new ImageIcon(imageURL);
+        card = new Card(img);
+        card.moveTo(xPos + 250, yPos - 150);
+        deck[n++] = card;
     }
 }

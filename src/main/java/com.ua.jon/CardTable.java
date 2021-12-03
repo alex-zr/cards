@@ -16,19 +16,19 @@ public class CardTable extends JComponent implements MouseListener,
 
     //=================================================================== fields
     //... Initial image coords.
-    private int _initX = 0;   // x coord - set from drag
-    private int _initY = 0;   // y coord - set from drag
+//    private int _initX = 0;   // x coord - set from drag
+//    private int _initY = 0;   // y coord - set from drag
 
     //... Position in image of mouse press to make dragging look better.
     private int _dragFromX = 0;  // Displacement inside image of mouse press.
     private int _dragFromY = 0;
 
-    private Card[] _deck;        // Should really be in a model, but ...
+    private Card[] deck;        // Should really be in a model, but ...
     private Card _currentCard = null;  // Current selected card.
 
     //============================================================== constructor
     public CardTable(Card[] deck) {
-        _deck = deck;                // Should be passed a model.
+        this.deck = deck;                // Should be passed a model.
 
         //... Initialize graphics
         setPreferredSize(new Dimension(TABLE_SIZE, TABLE_SIZE));
@@ -50,7 +50,7 @@ public class CardTable extends JComponent implements MouseListener,
 
         //... Display the cards, starting with the first array element.
         //    The array order defines the z-axis depth.
-        for (Card c : _deck) {
+        for (Card c : deck) {
             c.draw(g, this);
         }
     }
@@ -68,8 +68,8 @@ public class CardTable extends JComponent implements MouseListener,
 
         //... Find card image this is in.  Check from top down.
         _currentCard = null;  // Assume not in any image.
-        for (int crd = _deck.length - 1; crd >= 0; crd--) {
-            Card testCard = _deck[crd];
+        for (int crd = deck.length - 1; crd >= 0; crd--) {
+            Card testCard = deck[crd];
             if (testCard.contains(x, y)) {
                 //... Found, remember this card for dragging.
                 _dragFromX = x - testCard.getX();  // how far from left
